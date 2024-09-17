@@ -1,3 +1,11 @@
-const Quotes = () => null
+ import React from "react";
+import "./quote.css";
 
-export default Quotes
+const Quote = ({ quote }) => (
+  <div className="quote">
+    <p>{quote.body}</p>
+    <h1>{quote.author}</h1>
+  </div>
+);
+
+export default Quote;
