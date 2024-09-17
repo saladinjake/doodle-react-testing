@@ -3,8 +3,8 @@ import "./quote.css";
 
 const Quote = ({ quote }) => (
   <div className="quote">
-    <p>{quote.body}</p>
-    <h1>{quote.author}</h1>
+    <p data-testid="bodytext">{quote.body}</p>
+    <h1 data-testid="author">{quote.author}</h1>
   </div>
 );
 
