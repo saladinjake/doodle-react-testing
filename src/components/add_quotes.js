@@ -4,7 +4,7 @@ import {  QuotesContext } from "../../context/app_context";
 
 const AddQuote = () => {
   const { dispatch } = useContext( QuotesContext);
-  const [quote, setQuote] = useState();
+  const [quote, setQuote] = useState("Quote of the day");
   const handleChange = e => {
     setArticle({
       ...quote,
@@ -14,25 +14,30 @@ const AddQuote = () => {
 
   const handleSaveChanges = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_QUOTES", quote });
+    dispatch({ type: "ADD_QUOTES", payload: {quote} });
   };
 
   return (
+  	<>
+  	  <h1 data-testid="typingQuote">{ counter }</h1>
     <form onSubmit={handleSaveChanges} className="add-quotes">
       <input
         type="text"
         id="title"
         placeholder="By Author"
         onChange={handleChange}
+        data-testid="inputA"
       />
       <input
         type="text"
         id="body"
         placeholder="Inspire Someone!!!"
         onChange={handleChange}
+         data-testid="inputB"
       />
-      <button>Save</button>
+      <button data-testid='button-up'>Save</button>
     </form>
+    </>
   );
 };
 export default AddQuote;
